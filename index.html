@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--link rel="icon" href="favicon.ico" type ="image/x-icon" /-->
+<link rel="shortcut icon" type ="image/x-icon" href="favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Alqithami</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background: #fff;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	margin: 0;
+	font-size: x-small;
+	padding-left: 15px;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+	font-size: x-small;
+	text-align: justify;
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color:#414958;
+	text-decoration: underline; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #4E5869;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+}
+
+/* ~~ this container surrounds all other divs giving them their percentage-based width ~~ */
+.container {
+	width: 80%;
+	max-width: 1260px;/* a max-width may be desirable to keep this layout from getting too wide on a large monitor. This keeps line length more readable. IE6 does not respect this declaration. */
+	min-width: 780px;/* a min-width may be desirable to keep this layout from getting too narrow. This keeps line length more readable in the side columns. IE6 does not respect this declaration. */
+	background: #FFF;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout. It is not needed if you set the .container's width to 100%. */
+}
+
+/* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+.header {
+	background: #666666;
+}
+
+/* ~~ These are the columns for the layout. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a div set to float right). Many times, padding can be used instead. For divs where this rule must be broken, you should add a "display:inline" declaration to the div's rule to tame a bug where some versions of Internet Explorer double the margin.
+
+3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar divs could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+
+4) If you prefer your nav on the right instead of the left, simply float these columns the opposite direction (all right instead of all left) and they'll render in reverse order. There's no need to move the divs around in the HTML source.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 20%;
+	background: #cccccc;
+	padding-bottom: 10px 0;
+	font-size: x-small;
+}
+.content {
+	padding: 10px 0;
+	width: 60%;
+	float: left;
+	font-size: x-small;
+	padding-left: 0px;
+}
+.sidebar2 {
+	float: left;
+	width: 20%;
+	background: #cccccc;
+	padding: 10px 0;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+	font-size: x-small;
+	text-align: justify;
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none; /* this removes the list marker */
+	border-top: 1px solid #666; /* this creates the top border for the links - all others are placed using a bottom border on the LI */
+	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+}
+ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	text-decoration: none; 
+	background: #999999;
+	color: #000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+	background: #6F7D94;
+	color: #FFF;
+	font-size: x-small;
+}
+
+/* ~~The footer ~~ */
+.footer {
+	padding: 10px 0;
+	background: #666666;
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+}
+
+/* ~~miscellaneous float/clear classes~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+.container .header em strong {
+	color: #D6D6D6;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	/* [disabled]text-align: center; */
+}
+.container .header em strong center {
+	font-size: large;
+	font-family: Verdana, Geneva, sans-serif;
+}
+.container .header strong center {
+	color: #D6D6D6;
+}
+.container .sidebar2 dl dt {
+	font-size: x-small;
+}
+.container .sidebar2 dl dt {
+	font-family: "Courier New", Courier, monospace;
+}
+.container .sidebar2 dl dt {
+	font-family: Verdana, Geneva, sans-serif;
+}
+.container .content p {
+	font-size: x-small;
+}
+-->
+</style><!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
+ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it needs to correct extra whiltespace between the links */
+</style>
+<![endif]--></head>
+
+<body>
+
+<div class="container">
+  <div class="header"><a href="#"><!--img src="" alt="Insert Logo Here" name="Insert_logo" width="20%" height="90" id="Insert_logo" style="background: #999999; display:block; color: #000000;" /--></a> 
+    <!-- end .header --><strong><center>
+      Saad Alqithami
+  </center></strong></div>
+  <div class="sidebar1">
+    <!--ul class="nav">
+      <li><a href="#">Link one</a></li>
+      <li><a href="#">Link two</a></li>
+      <li><a href="#">Link three</a></li>
+      <li><a href="#">Link four</a></li>
+    </ul-->
+    <p><strong>Sociality Forums ..</strong></p>
+    <center>
+        <a href="http://www.linkedin.com/pub/saad-alqithami/49/105/30"><img src="images/linkedin.png" alt="" width="35" height="35" /></a>
+        <a href="https://www.facebook.com/alqithami"><img src="images/facebook.png" alt="" width="35" height="35" /></a>
+        <a href="https://twitter.com/alqithami"><img src="images/twitter.png" alt="" width="35" height="35" /></a>
+        <a href="https://plus.google.com/u/0/+SaadAlqithami"><img src="images/gplus.png" alt="" width="35" height="35" /></a>
+        </center>
+    <hr />
+	<p><strong>Scholarly Measure ..</strong></p>
+    <center>
+        <a href="http://scholar.google.com/citations?user=HkgKEAsAAAAJ&hl=en"><img src="images/ghat.png" alt="" width="30" height="30" /></a>
+        <a href="https://www.researchgate.net/profile/Saad_Alqithami"><img src="images/rgate.png" alt="" width="30" height="30" /></a>
+        <a href="http://www.informatik.uni-trier.de/~ley/pers/hd/a/Alqithami:Saad"><img src="images/dblp.png" alt="" width="30" height="30" /></a>
+        </center>
+  <!-- end .sidebar1 -->
+  </div>
+  <div class="content">
+    <h1>NOW ...</h1>
+    <p>A <em>Ph. D. Candidate</em> in Computer Science Department at Southern Illinois University, Carbondale, IL USA. <br />
+    <p> - Currently: 
+<ul>
+<li> Planning for multiple <strong>research visits</strong>! <a href="mailto:alqithami@siu.edu">Let me know</a> of your current interesting projects. [<em>Funded</em>] </li>
+<li> Looking for a <strong>postdoctoral/research</strong> position! &#8212;&raquo; <a href="mailto:alqithami@siu.edu">Résumé/Contact</a>!</li>
+</ul>
+    <hr />
+    <!--h1>Currently looking for ..</h1>
+    <p>A post doctoral posission, Saad is <em>a Ph. D. Candidate </em>at the Department of Computer Science, Southern Illinois University, Carbondale, IL  USA. <br />    </p>
+    <hr /-->
+    <h2>Objectives and Areas:</h2>
+    <p>
+Collective behaviors of any beings as well as reactions to certain (might be enforced) feeds in social/behavioral settings have always puzzled me. I am interested in understanding such a collaborative life while adapting to dynamic changes of actors, objectives and in some cases the purpose of existence.</p>
+
+<p>To this point, I design semantics as well as mathematical models for adaptive organizations based multi-agent systems where semi-autonomous agents dwell in a dynamic network of interactions.</p> 
+
+<p>My focus broadly encompass:</p>
+<ul>
+<li> Adaptive Multi-Agent Systems,</li> 
+<li> Organizational Theory, </li>
+<li> Complex Networks, </li>
+<li> Cognitive Models and </li>
+<li> Computational Social behaviors.</li>
+</ul>
+</p>
+    <hr />
+<h2>News and Updates: </h2>
+<ol> 
+<li> A group of enthusiasts and I created a forum as an emailing list to notify you by current openings in the area of artificial intelligence. If interested, visit: <a href="https://groups.google.com/group/ai-jobs">[AI-JOBS]</a></li>
+<li> Meet me in <a href="http://mipc.inf.ed.ac.uk/2016/">MIPC workshop</a> at AAAI'16. I'll be presenting new exciting formulas to measure synergy from benevolence. [initial results @ 2:45 &#8212; <a href="http://mipc.inf.ed.ac.uk/2016/papers/mipc2016_alqithami_hexmoor.pdf">Paper</a> ]</li>
+<li> Joined IJCAI 2016 program committee..</li>
+<li> Co-chairing <a href="http://www2.cs.siu.edu/~mas/coos16/">COOS workshop</a> with AAMAS 2016. [Deadline: FEB 20th, Withdrawn]</li>
+<li> The special issue, titled "Networked Agents of Complex Online Organisations," is currently in press..</li>
+</ol>	
+    <hr />
+    <h3>Recent Publications: (since Summer, 2012)</h3>
+    <h3>I - Journal Papers:</h3>
+    <ol>
+    <li>&quot;<a href="http://content.iospress.com/articles/web-intelligence-and-agent-systems-an-international-journal/wia299">Modeling Emergent Network Organizations</a>,&quot; with H. Hexmoor. In the International Journal of Web Intelligence and Agent Systems, IOS Press. Vol. 12, No. 3, pp. 325-339, 2014.</li>
+    <li>&quot;<a href="https://www.fujipress.jp/jaciii/jc/jacii001800040567/">Plasticity in Network Organizations</a>,&quot; with H. Hexmoor. In Journal of Advanced Computational Intelligence and Intelligent Informatics (JACIII), Fuji Tech. Press. Vol. 18, No. 4, pp. 567-572, 2014.</li>
+    <li>&quot;<a href="http://www.cse.unr.edu/~fredh/IJCA/IJCA%20Journal%20Vol%2020-4,%20Dec%202013.pdf?#page=31">A Cooperative Game Theory-based Approach for Energy-Aware Job Scheduling in Cloud</a>,&quot; with M. Khaleel, M. Zhu, D. Che and W. Hou. In the International Journal of Computers and Their Applications (IJCA), ISCA. Vol. 20, No. 4, pp. 221-235, 2013.</li>
+    </ol>
+<h4>II - Book Chapters    </h4>
+<ol>
+    <li>&quot;<a href="http://www.crcnetbase.com/doi/abs/10.1201/b17333-20">Conceptual Modeling of Networked Organizations: The Case of AUM</a>,&quot; with J. Haegele and H. Hexmoor. In B. Issac &amp; N. Israr (Eds.), Case Studies in Intelligent Computing Achievements and Trends. CRC Press, Taylor and Francis. pp. 391–406, 2014.</li>
+</ol>
+    <h4>III - Conference Proceedings</h4>
+    <ol>
+    <li>&quot;<a href="http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=7210408&tag=1">Ubiquity of Network Organizations: Paradigmatic Perspective and Synergistic Effect</a>,&quot; with H. Hexmoor, 2015. In the International Conference on Collaboration Technologies and Systems (CTS), Atlanta-Georgia, USA. {<em>Nominated for the outstanding paper award</em>}</li>
+    <li>&quot;<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7210468&searchWithin=%22Authors%22:.QT.Alqithami,%20Saad.QT.&newsearch=true">Architectonic Elucidation for a Network Organization</a>,&quot;  2015. In the International Conference on Collaboration Technologies and Systems (CTS), Atlanta-Georgia, USA. {<em>Doctoral Consortium</em>}</li>
+    <li>&quot;<a href="http://www.aamas2015.com/en/AAMAS_2015_USB/aamas/p1981.pdf">A Reference Model for a Networked Organization</a>,&quot; 2015. In the International conference on autonomous agents and multiagent systems (AAMAS). Istanbul, Turkey. pp. 1981-1982. {<em>Doctoral Consortium</em>}</li>
+    <li>&quot;<a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/view/9707">A Succinct Conceptualization of the Foundations for a Network Organization Paradigm</a>,&quot; 2015. In the twenty-ninth AAAI conference on Artificial Intelligence, Austin Texas, USA. pp. 4140-4141.</li>
+    <li>&quot;<a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8567">Social Capital in Network Organizations</a>,&quot; with H. Hexmoor, 2014. In the twenty-eighth AAAI conference on Artificial Intelligence, Quebec, Canada. pp. 3090-3091.</li>
+    <li>&quot;<a href="http://www.sciencedirect.com/science/article/pii/S2212671613000206">Qualities of Interest for Spontaneous Networked Organizations</a>,&quot; with H. Hexmoor, 2013. In AASRI Procedia on Intelligent Systems and Control, Volume 4, pp. 118-124.</li>
+    <li>&quot;<a href="http://www.sciencedirect.com/science/article/pii/S2212671613000243">On the core of agents interactions in a spontaneous networked organization</a>,&quot; with M. Hamdi and H. Hexmoor, 2013. In AASRI Procedia on Intelligent Systems and Control, Volume 4, pp. 147-153.</li>
+    <li>&quot;<a href="http://ieeexplore.ieee.org/xpl/abstractAuthors.jsp?arnumber=6450963">Spontaneous Organizations: Collaborative Computing Model of a Networked Organization</a>,&quot; with H. Hexmoor, 2012. In the 8th IEEE International Conference on Collaborative Computing: Networking, Applications and Work-sharing Collaborative Communities for Social Computing): Pittsburgh, PA, USA, pp.643-650.</li>
+    <li>&quot;<a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6338006&queryText%3DSocial+capital+in+virtual+organizations">Social capital in virtual organizations</a>,&quot; with H. Hexmoor, 2012. In the 4th International Conference on Intelligent Networking and Collaborative Systems (INCoS): Bucharest, Romania, pp.682-687.</li>
+    <li>&quot;<a href="http://worldcomp-proceedings.com/proc/p2012/ICA2590.pdf">Rapid Adaptation in Computational Organizations</a>,&quot; with H. Hexmoor, 2012, In the International Conference on Articial Intelligence, Las vegas, NV, USA, pp. 342-347.</li></ol>
+
+
+    <h4>IV - Workshops and Technical  Papers</h4>
+    <ol>
+    <li> &quot;<a href="http://mipc.inf.ed.ac.uk/2016/papers/mipc2016_alqithami_hexmoor.pdf">Measuring Synergy from Benevolence in a Network Organization</a>,&quot; with H. Hexmoor, 2016. In the 3rd workshop on multiagent interaction without prior coordination (MIPC) in conjunction with the the thirtieth AAAI conference on Artificial Intelligence (AAAI 2016), Phoenix, Arizona USA.
+    <li> &quot;<a href="http://www2.cs.siu.edu/~mas/coos15/Proceeding/proc15.pdf#page=6">Network Organization Paradigm: Synergistic Effect on the Productivity of a Collaborative Organization</a>,&quot; 2015. In the 3nd collaborative online organizations workshop in conjunction with 14th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2015), Istanbul, Turkey.</li>
+      <li> &quot;<a href="http://www2.cs.siu.edu/~mas/coos14/Proceeding/workshop_proceeding_coos14.pdf#page=20">Evaluation of the Utility Function in Terrorist Organizations: the Case of Aum Shinrikyo</a>,&quot; with J. Haegele, 2014. In the 2nd collaborative online organizations workshop in conjunction with 13th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2014), Paris, France.</li>
+    <li>&quot;<a href="http://www2.cs.siu.edu/~mas/coos/Proceeding/Final%20COOS%2713%20Proc..pdf#page=32">Plasticity in Network Organizations: An Introduction</a>,&quot; with H. Hexmoor, 2013. In the collaborative online organizations workshop in conjunction with 12th International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2013), Saint Paul, Minnesota, USA.</li>
+    <li>&quot;Situated Strategic Organizations,&quot; with H. Hexmoor, 2013. Proceedings of the Twenty-Sixth International Florida Artificial Intelligence Research Society Conference. Eds. Denecke and McCarthy. {<em>Abs. 1</em>}</li>
+    </ol>
+    <hr />
+    <h4>Recent Academic Activities:</h4>
+    <p>- Helps in <em>organizing</em> several academic  events, some of them are</p>
+    <ol>
+      <li>Program committee member at <a href="http://ijcai-16.org/">IJCAI</a> 2016 conference, in New York, United States [July, 2016].</li>
+      <li>Co-chair of the 4th AAMAS workshop on Collaborative Online Organizations (<a href="http://www2.cs.siu.edu/~mas/coos16">COOS’16</a>), in Singapore [May, 2016][Canceled].</li>
+      <li>Co-Editor of a special issue titled &quot;<em><a href="http://www.inderscience.com/info/ingeneral/cfp.php?id=2848">Networked Agents of Complex Online Organisations</a></em>&quot; from the <a href="http://www.inderscience.com/jhome.php?jcode=ijcistudies">International Journal of Computational Intelligence Studies</a>, [In Press, 2016].</li>
+      <li> Student volunteer at the <a href="http://www.aaai.org/Conferences/AAAI/aaai15.php">AAAI-15 confernece</a> in Auston, Texas [Jan 25-30, 2015].
+      <li>Co-chair of the 3rd AAMAS workshop on Collaborative Online Organizations (<a href="http://www2.cs.siu.edu/~mas/coos15">COOS’15</a>), in Istanbul, Turky [May, 2015].</li>
+      <li>Co-chair of the 2nd AAMAS workshop on Collaborative Online Organizations (<a href="http://www2.cs.siu.edu/~mas/coos14/">COOS’14</a>), in Paris, France [May, 2014].</li>
+      <li>Organizing Committee of the 2nd International Conference on Computational and Network Technologies (<a href="http://scholarsconvention.com/iccnt">ICCNT</a>), in Bali, Indonesia [Sept, 2014].</li>
+      <li>Co-chair of the AAMAS workshop on Collaborative Online Organizations (<a href="http://www2.cs.siu.edu/~mas/coos/">COOS’13</a>), in Saint Paol, MN, United States [May, 2013].</li>
+    </ol>
+    
+    <p>-  A <em>reviewer</em> for several journals (e.g., IEEE T-CIAIG, IEEE IS, IJAC, etc), and a lot of local and international conferences and workshops (e.g., IJCAI, COOS, ISCI, PRIP, ISWTA, etc). </p>
+    
+    <p>- A <em>member</em> of multiple interesting societies (e.g., AAAI, IEEE, IBM AI, KES, SSPI, etc). 
+	<!--ol>
+    <li> The Association for the Advancement of Artificial Intelligence (AAAI)</li>
+    <li>The Association for Computing Machinery (ACM)</li>
+    <li> Institute of Electrical and Electronics Engineers (IEEE)</li>
+    <li> IBM Academic Initiative</li>
+    <li>The International Association for the Engineers and the Computer Scientists</li>
+    <li>KES International</li>
+    <li>International Association of Computer Science and Information Technology</li>
+    <li>Society of Satellite Professionals International</li>
+    </ol-->
+
+      <!--p> - Recently <em>funded</em> to attend:
+      <ol>
+      <li> [JAN-2015] The Twenty-Ninth AAAI Conference: From AAAI, SIUC and SACM      
+      <li>[MAY-2015] The 14th AAMAS Conference: From SIUC and SACM      
+      <li>[JUNE-2015]          
+    The 16th CTS Conference: From CTS and SACM</ol--> 
+    <p>- Conferences <em>attended</em> recently: 
+      		<br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&#8224; [Outline: 2015] AAAI, AAMAS, and CTS: Funding were obtained from AAAI, CTS, SIUC and SACM<ol>
+<li> [2016] AAAI - SIU
+</ol>
+  <!-- end .content --></div>
+  <div class="sidebar2">
+    <h4>Bio...</h4>
+
+    <dl>
+    <dt> Ph. D. </dt>
+    	<dd> &deg; 2012 - Current </dd>
+    	<dd> &deg; CS at SIUC</dd>
+    <dt> MSc</dt>
+    	<dd> &deg; 2011 - 2012</dd>
+        <dd> &deg; CS at SIUC </dd>
+    <dt> Positions: </dt>
+    	<dt> &#8212; Faculty: </dt>
+        <dd> &deg; Albaha University</dd>
+        <dd> &deg; 2009 - Current
+    <!--p>I am currently a Ph. D. candidate at the department of computer science, Southern Illinois University of Carbondale. I have completed my MSc in computer science at the same University in 2012. I am also a faculty member with the department of computer science at Albaha University, Saudi Arabia since 2009.  </p-->    </dd>
+    </dl>
+    <br />
+<p>More details can be found in my <a href="mailto:alqithami@siu.edu">résumé</a>
+      <!--By Contact! -->
+...</p>
+    <hr />
+    <p><strong>To contact,</strong><br />
+      <br />
+Southern Illinois University<br />
+Department of Computer Sci <br />
+Faner Hall 2125,  
+    Mail#4511 <br />
+Carbondale, IL 62901 USA <br />
+<br />
++1 (618) 303 - 4335 <br />
+alqithami (at) siu . edu </p>
+  <!-- end .sidebar2 ></div-->
+   
+<hr />
+	<p>If you are looking for or providing a job in AI, please use this <a href="https://groups.google.com/group/ai-jobs">email-list</a>.</strong></p>
+
+</p>
+</div>
+
+ 
+  <div align=center class="footer">
+    <p><center><a href="http://info.flagcounter.com/AMNb"><img src="http://s01.flagcounter.com/count/AMNb/bg_666666/txt_cccccc/border_666666/columns_8/maxflags_8/viewers_3/labels_0/pageviews_1/flags_1/" alt="" border="0"></a> </center>
+    </p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>
